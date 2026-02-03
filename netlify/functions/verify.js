@@ -1,5 +1,15 @@
 const cheerio = require('cheerio');
 
+let fetchImpl = global.fetch;
+if (!fetchImpl) {
+  fetchImpl = require('node-fetch');
+}
+
+if (typeof AbortController === 'undefined') {
+  const AbortControllerShim = require('abort-controller');
+  global.AbortController = AbortControllerShim;
+}
+
 const BLOCKED_DOMAINS = new Set([
   'wikipedia.org',
   'wikimedia.org',
@@ -75,7 +85,7 @@ const fetchWithTimeout = async (url, timeoutMs = 20000) => {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const response = await fetch(url, { signal: controller.signal, redirect: 'follow' });
+  const response = await fetchImpl(url, { signal: controller.signal, redirect: 'follow' });
     return response;
   } finally {
     clearTimeout(timeout);

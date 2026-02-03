@@ -4,6 +4,8 @@
   "description": "Static report UI + Netlify function for verification",
   "type": "commonjs",
   "dependencies": {
-    "cheerio": "^1.0.0"
+    "cheerio": "^1.0.0",
+    "node-fetch": "^2.6.12",
+    "abort-controller": "^3.0.0"
   }
 }
