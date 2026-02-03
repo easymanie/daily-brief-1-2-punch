@@ -1,3 +1,7 @@
+if (typeof File === 'undefined') {
+  global.File = class File {};
+}
+
 const cheerio = require('cheerio');
 const fetchImpl = require('node-fetch');
 
