@@ -1,9 +1,5 @@
 const cheerio = require('cheerio');
-
-let fetchImpl = global.fetch;
-if (!fetchImpl) {
-  fetchImpl = require('node-fetch');
-}
+const fetchImpl = require('node-fetch');
 
 if (typeof AbortController === 'undefined') {
   const AbortControllerShim = require('abort-controller');
