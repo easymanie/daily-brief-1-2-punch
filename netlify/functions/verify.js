@@ -1,14 +1,6 @@
-if (typeof File === 'undefined') {
-  global.File = class File {};
-}
-
 const cheerio = require('cheerio');
 const fetchImpl = require('node-fetch');
-
-if (typeof AbortController === 'undefined') {
-  const AbortControllerShim = require('abort-controller');
-  global.AbortController = AbortControllerShim;
-}
+const AbortControllerShim = require('abort-controller');
 
 const BLOCKED_DOMAINS = new Set([
   'wikipedia.org',
@@ -82,7 +74,7 @@ const extractDocId = (url) => {
 const exportUrl = (docId) => `https://docs.google.com/document/d/${docId}/export?format=html`;
 
 const fetchWithTimeout = async (url, timeoutMs = 20000) => {
-  const controller = new AbortController();
+  const controller = new AbortControllerShim();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
   const response = await fetchImpl(url, { signal: controller.signal, redirect: 'follow' });
