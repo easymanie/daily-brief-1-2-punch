@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Brief 12 Punch</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Daily Brief 12 Punch</h1>
+      <p>Numbers first, links second, then critical notes.</p>
+    </header>
+
+    <section class="input-card">
+      <label for="docUrl">Google Doc link</label>
+      <input id="docUrl" type="url" placeholder="https://docs.google.com/document/d/..." />
+      <button id="verifyBtn">Verify and give notes</button>
+      <p class="helper">Doc must be shared as “Anyone with the link can view.”</p>
+    </section>
+
+    <section id="status" class="status"></section>
+
+    <section class="results" id="results" hidden>
+      <div class="panel">
+        <h2>Verification: Numbers</h2>
+        <p class="helper">Green = supported, Yellow = unclear/needs better sourcing, Red = source mismatch or irrelevant.</p>
+        <div id="numbers"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Verification: Links</h2>
+        <div id="links"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Verification: Dates</h2>
+        <div id="dates"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Critical Analysis</h2>
+        <div id="critical"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
