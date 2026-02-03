@@ -154,7 +154,7 @@ const verifyDoc = async () => {
   resultsEl.hidden = true;
 
   try {
-    const response = await fetch('/api/verify', {
+    const response = await fetch('/.netlify/functions/verify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ doc_url: docUrl }),

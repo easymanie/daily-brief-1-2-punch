@@ -66,6 +66,17 @@ uvicorn app.main:app --reload
 http://127.0.0.1:8000
 ```
 
+## Deploying as a Static Site (Netlify)
+1. Push the repo to GitHub.
+2. In Netlify, create a new site from GitHub.
+3. Build settings:
+   - Build command: (leave empty)
+   - Publish directory: `site`
+   - Functions directory: `netlify/functions`
+4. Deploy.
+
+The UI runs at your Netlify URL and the verification function is available at `/.netlify/functions/verify`.\n
+
 ## API Usage
 `POST /api/verify`
 

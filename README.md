@@ -32,6 +32,17 @@ uvicorn app.main:app --reload
 http://127.0.0.1:8000
 ```
 
+## Deploy on Netlify (static + serverless function)
+1. Push the repo to GitHub.
+2. In Netlify, create a new site from GitHub.
+3. Use these settings:
+   - Build command: leave empty
+   - Publish directory: `site`
+   - Functions directory: `netlify/functions`
+4. Deploy.
+
+The UI will be hosted at your Netlify URL. The Verify button calls the Netlify function at `/.netlify/functions/verify`.
+
 ## Source policy
 Blocked by default:
 - Reddit and social platforms

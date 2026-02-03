@@ -1,0 +1,9 @@
+{
+  "name": "daily-brief-12punch",
+  "version": "0.1.0",
+  "description": "Static report UI + Netlify function for verification",
+  "type": "commonjs",
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}
